@@ -87,8 +87,8 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       </main>
       <footer className="py-6 px-8 border-t border-white/5 bg-black/20 text-center relative z-10">
         <p className="text-zinc-500 text-xs font-medium max-w-2xl mx-auto leading-relaxed">
-          Operational Terminal — SPACE Concept Proxy. 
-          Data persisted locally in Resident session.
+          Note: This is a demo version. All data shown is for demonstration purposes only and is not real. 
+          Some features or functions may be limited as this is a demonstration environment.
         </p>
       </footer>
     </div>
