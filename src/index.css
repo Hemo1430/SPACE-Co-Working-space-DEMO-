@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #141313;
+  --color-surface-dim: #141313;
+  --color-surface-bright: #3a3939;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-surface-container-low: #1c1b1b;
+  --color-surface-container: #201f1f;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container-highest: #353434;
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-variant: #c4c7c8;
+  --color-inverse-surface: #e5e2e1;
+  --color-inverse-on-surface: #313030;
+  --color-outline: #8e9192;
+  --color-outline-variant: #444748;
+  --color-surface-tint: #c6c6c7;
+  --color-primary: #ffffff;
+  --color-on-primary: #2f3131;
+  --color-primary-container: #e2e2e2;
+  --color-on-primary-container: #636565;
+  --color-inverse-primary: #5d5f5f;
+  --color-secondary: #c6c6cc;
+  --color-on-secondary: #2f3035;
+  --color-secondary-container: #47494e;
+  --color-on-secondary-container: #b7b8be;
+  --color-tertiary: #ffffff;
+  --color-on-tertiary: #2c3138;
+  --color-tertiary-container: #dee2ec;
+  --color-on-tertiary-container: #60656d;
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-surface text-on-surface selection:bg-primary/20 selection:text-primary min-h-screen;
+    background-image: 
+      radial-gradient(1px 1px at 20px 30px, #ffffff15, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 40px 70px, #ffffff08, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 50px 160px, #ffffff15, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 90px 40px, #ffffff0a, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 130px 80px, #ffffff08, rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 160px 120px, #ffffff15, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    animation: drift 120s linear infinite;
+  }
+}
+
+@keyframes drift {
+  from { background-position: 0 0; }
+  to { background-position: 300px 600px; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+.star {
+  @apply absolute rounded-full bg-white pointer-events-none;
+  animation: twinkle var(--duration, 3s) ease-in-out infinite;
+  opacity: var(--opacity, 0.5);
+}
+
+.glass-panel {
+  @apply backdrop-blur-xl border border-white/10 bg-surface-container/40 shadow-2xl;
+}
+
+.text-h1 { @apply font-display text-5xl font-bold tracking-tight leading-[1.1]; }
+.text-h2 { @apply font-display text-3xl font-semibold tracking-tight leading-[1.2]; }
+.text-h3 { @apply font-display text-2xl font-medium tracking-tight leading-[1.3]; }
+.text-label-sm { @apply font-sans text-xs font-semibold tracking-wider; }
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e2e2e2;
+  border-radius: 100px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+/* Firefox Support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #e2e2e2 transparent;
+}
